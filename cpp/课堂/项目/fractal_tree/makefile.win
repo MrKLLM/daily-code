@@ -1,0 +1,40 @@
+# Project: fractal_tree
+# Makefile created by Red Panda C++ 3.3.3147
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-m64" "-Wl,--stack,12582912" "-lgraphics" "-luuid" "-lmsimg32" "-lgdi32" "-limm32" "-lole32" "-loleaut32" "-lwinmm" "-lgdiplus"
+INCS     = 
+CXXINCS  = 
+CXXFLAGS = $(CXXINCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+CFLAGS   = $(INCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+WINDRESFLAGS = 
+RES      = fractal_tree_private.res
+OBJ      = xy_ege.o fractal_tree.o $(RES)
+BIN      = fractal_tree.exe
+LINKOBJ  = "xy_ege.o" "fractal_tree.o" "fractal_tree_private.res"
+CLEANOBJ = "xy_ege.o" "fractal_tree.o" "fractal_tree_private.res" "fractal_tree.exe"
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) >NUL 2>&1
+
+fractal_tree.exe: $(OBJ)
+
+	$(CXX) $(LINKOBJ) -o "fractal_tree.exe" $(LIBS)
+
+xy_ege.o: xy_ege.cpp xy_ege.h
+	$(CXX) -c "xy_ege.cpp" -o "xy_ege.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+fractal_tree.o: fractal_tree.cpp xy_ege.h
+	$(CXX) -c "fractal_tree.cpp" -o "fractal_tree.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+fractal_tree_private.res: fractal_tree_private.rc 
+	$(WINDRES) -i "fractal_tree_private.rc" --input-format=rc -o "fractal_tree_private.res" -O coff $(WINDRESFLAGS) 
+

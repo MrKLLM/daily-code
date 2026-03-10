@@ -1,0 +1,96 @@
+[
+    {
+        "caretX": 25,
+        "caretY": 64,
+        "filename": "D:/SSStudy/Programing/RedPandaIDE/PPProjects/学生管理系统/student.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 1,
+        "top": 0
+    },
+    {
+        "caretX": 10,
+        "caretY": 19,
+        "filename": "D:/SSStudy/Programing/RedPandaIDE/PPProjects/学生管理系统/main.cpp",
+        "focused": true,
+        "isOpen": true,
+        "left": 0,
+        "order": 3,
+        "top": 252
+    },
+    {
+        "caretX": 3,
+        "caretY": 18,
+        "filename": "D:/SSStudy/Programing/RedPandaIDE/PPProjects/学生管理系统/link.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 4,
+        "caretY": 112,
+        "filename": "D:/SSStudy/Programing/RedPandaIDE/PPProjects/学生管理系统/student.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 2,
+        "top": 2520
+    },
+    {
+        "caretX": 17,
+        "caretY": 28,
+        "filename": "D:/SSStudy/Programing/RedPandaIDE/PPProjects/学生管理系统/input.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 336
+    },
+    {
+        "caretX": 14,
+        "caretY": 37,
+        "filename": "D:/SSStudy/Programing/RedPandaIDE/PPProjects/学生管理系统/public_defs.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 0,
+        "top": 672
+    },
+    {
+        "caretX": 1,
+        "caretY": 19,
+        "filename": "D:/SSStudy/Programing/RedPandaIDE/PPProjects/学生管理系统/link.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 19,
+        "caretY": 10,
+        "filename": "D:/SSStudy/Programing/RedPandaIDE/PPProjects/学生管理系统/output.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 9,
+        "caretY": 13,
+        "filename": "D:/SSStudy/Programing/RedPandaIDE/PPProjects/学生管理系统/input.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 308
+    },
+    {
+        "caretX": 16,
+        "caretY": 6,
+        "filename": "D:/SSStudy/Programing/RedPandaIDE/PPProjects/学生管理系统/output.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    }
+]

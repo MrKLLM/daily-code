@@ -1,0 +1,49 @@
+# Project: Project1
+# Makefile created by Red Panda C++ 3.3.3147
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-Wl,--stack,12582912"
+INCS     = 
+CXXINCS  = 
+CXXFLAGS = $(CXXINCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+CFLAGS   = $(INCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+WINDRESFLAGS = 
+RES      = 杭州亚运会志愿者信息管理系统_private.res
+OBJ      = link.o output.o input.o main.o volunteer.o $(RES)
+BIN      = 杭州亚运会志愿者信息管理系统.exe
+LINKOBJ  = "link.o" "output.o" "input.o" "main.o" "volunteer.o" "杭州亚运会志愿者信息管理系统_private.res"
+CLEANOBJ = "link.o" "output.o" "input.o" "main.o" "volunteer.o" "杭州亚运会志愿者信息管理系统_private.res" "杭州亚运会志愿者信息管理系统.exe"
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) >NUL 2>&1
+
+杭州亚运会志愿者信息管理系统.exe: $(OBJ)
+
+	$(CXX) $(LINKOBJ) -o "杭州亚运会志愿者信息管理系统.exe" $(LIBS)
+
+link.o: link.cpp link.h public_defs.h
+	$(CXX) -c "link.cpp" -o "link.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+output.o: output.cpp link.h output.h public_defs.h
+	$(CXX) -c "output.cpp" -o "output.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+input.o: input.cpp link.h input.h public_defs.h
+	$(CXX) -c "input.cpp" -o "input.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+main.o: main.cpp link.h input.h volunteer.h output.h public_defs.h
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+volunteer.o: volunteer.cpp link.h volunteer.h public_defs.h
+	$(CXX) -c "volunteer.cpp" -o "volunteer.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+杭州亚运会志愿者信息管理系统_private.res: 杭州亚运会志愿者信息管理系统_private.rc 
+	$(WINDRES) -i "杭州亚运会志愿者信息管理系统_private.rc" --input-format=rc -o "杭州亚运会志愿者信息管理系统_private.res" -O coff $(WINDRESFLAGS) 
+

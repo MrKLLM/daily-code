@@ -1,0 +1,14 @@
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\bin\Debug\net6.0\Chapter3_5.exe
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\bin\Debug\net6.0\Chapter3_5.deps.json
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\bin\Debug\net6.0\Chapter3_5.runtimeconfig.json
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\bin\Debug\net6.0\Chapter3_5.dll
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\bin\Debug\net6.0\Chapter3_5.pdb
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\obj\Debug\net6.0\Chapter3_5.GeneratedMSBuildEditorConfig.editorconfig
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\obj\Debug\net6.0\Chapter3_5.AssemblyInfoInputs.cache
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\obj\Debug\net6.0\Chapter3_5.AssemblyInfo.cs
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\obj\Debug\net6.0\Chapter3_5.csproj.CoreCompileInputs.cache
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\obj\Debug\net6.0\Chapter3_5.dll
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\obj\Debug\net6.0\refint\Chapter3_5.dll
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\obj\Debug\net6.0\Chapter3_5.pdb
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\obj\Debug\net6.0\Chapter3_5.genruntimeconfig.cache
+D:\SSStudy\Programing\C#\Temp\Chapter_3\Chapter3_1_5\obj\Debug\net6.0\ref\Chapter3_5.dll

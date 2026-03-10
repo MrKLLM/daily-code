@@ -1,0 +1,37 @@
+# Project: 志愿者信息管理系统（全功能）
+# Makefile created by Red Panda C++ 3.3.3147
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-Wl,--stack,12582912"
+INCS     = 
+CXXINCS  = 
+CXXFLAGS = $(CXXINCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+CFLAGS   = $(INCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+WINDRESFLAGS = 
+RES      = 志愿者信息管理系统（全功能）_private.res
+OBJ      = main1.o $(RES)
+BIN      = 志愿者信息管理系统（全功能）.exe
+LINKOBJ  = "main1.o" "志愿者信息管理系统（全功能）_private.res"
+CLEANOBJ = "main1.o" "志愿者信息管理系统（全功能）_private.res" "志愿者信息管理系统（全功能）.exe"
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) >NUL 2>&1
+
+志愿者信息管理系统（全功能）.exe: $(OBJ)
+
+	$(CXX) $(LINKOBJ) -o "志愿者信息管理系统（全功能）.exe" $(LIBS)
+
+main1.o: main1.cpp
+	$(CXX) -c "main1.cpp" -o "main1.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+志愿者信息管理系统（全功能）_private.res: 志愿者信息管理系统（全功能）_private.rc 
+	$(WINDRES) -i "志愿者信息管理系统（全功能）_private.rc" --input-format=rc -o "志愿者信息管理系统（全功能）_private.res" -O coff $(WINDRESFLAGS) 
+

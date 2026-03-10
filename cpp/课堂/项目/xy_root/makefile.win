@@ -1,0 +1,40 @@
+# Project: xy_root
+# Makefile created by Red Panda C++ 3.3.3147
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-lgraphics" "-luuid" "-lmsimg32" "-lgdi32" "-limm32" "-lole32" "-loleaut32" "-lwinmm" "-lgdiplus"
+INCS     = 
+CXXINCS  = 
+CXXFLAGS = $(CXXINCS) "-g3" "-Og" "-pipe" "-Wall" "-D_DEBUG"
+CFLAGS   = $(INCS) "-g3" "-Og" "-pipe" "-Wall" "-D_DEBUG"
+WINDRESFLAGS = 
+RES      = xy_root_private.res
+OBJ      = xy_ege.o main.o $(RES)
+BIN      = xy_root.exe
+LINKOBJ  = "xy_ege.o" "main.o" "xy_root_private.res"
+CLEANOBJ = "xy_ege.o" "main.o" "xy_root_private.res" "xy_root.exe"
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) >NUL 2>&1
+
+xy_root.exe: $(OBJ)
+
+	$(CXX) $(LINKOBJ) -o "xy_root.exe" $(LIBS)
+
+xy_ege.o: xy_ege.cpp xy_ege.h
+	$(CXX) -c "xy_ege.cpp" -o "xy_ege.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+main.o: main.cpp xy_ege.h
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+xy_root_private.res: xy_root_private.rc 
+	$(WINDRES) -i "xy_root_private.rc" --input-format=rc -o "xy_root_private.res" -O coff $(WINDRESFLAGS) 
+

@@ -1,0 +1,262 @@
+# 编辑器/IDE缓存（通用）
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store  # Mac系统文件
+Thumbs.db  # Windows系统文件
+
+# Python（编译/缓存文件）
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/  # 虚拟环境
+venv/
+
+# C/C++（编译产物）
+*.o
+*.out
+*.exe
+*.dll
+*.so
+
+# 前端（依赖包）
+node_modules/
+dist/
+build/
+
+# 其他临时文件
+*.log
+*.tmp
+test/scratch*  # test目录下的临时测试文件
+
+# ============================
+# 增强部分
+# ============================
+
+# ----------------------------
+# 其他编辑器/IDE 缓存
+# ----------------------------
+*.sublime-project
+*.sublime-workspace
+*.sln
+*.vcxproj
+*.vscode/
+*.swp
+*.swo
+*.bak
+*.tmp
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# ----------------------------
+# Java / Gradle / Maven
+# ----------------------------
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+target/
+out/
+build/
+bin/
+classes/
+*.iml
+*.ipr
+*.iws
+.gradle/
+.mvn/
+.settings/
+.idea/
+*.lock
+*.log
+
+# ----------------------------
+# Node.js / JavaScript / TypeScript
+# ----------------------------
+node_modules/
+npm-debug.log*
+yarn-error.log*
+yarn.lock
+package-lock.json
+dist/
+build/
+out/
+coverage/
+*.min.js
+*.min.css
+*.map
+
+# ----------------------------
+# Go
+# ----------------------------
+# go build output
+*.exe
+*.a
+*.so
+*.dll
+*.dylib
+*.o
+# build cache
+pkg/
+# test coverage
+coverage.out
+*.gcov
+# temporary files
+*.tmp
+
+# ----------------------------
+# Rust
+# ----------------------------
+target/
+Cargo.lock
+*.rs.bak
+*.rs.swp
+
+# ----------------------------
+# Swift / iOS / Xcode
+# ----------------------------
+*.xcuserstate
+*.xcscheme
+*.xccheckout
+*.xcodeproj/
+*.xcworkspace/
+*.xctestrun
+DerivedData/
+*.ipa
+*.app
+*.framework
+
+# ----------------------------
+# Docker / CI/CD
+# ----------------------------
+Dockerfile
+docker-compose.yml
+.dockerignore
+.env
+.env.local
+.env.development
+.env.production
+*.env
+*.key
+*.pem
+*.cert
+*.secret
+
+# ----------------------------
+# 其他临时文件
+# ----------------------------
+*.tmp
+*.temp
+*.tmp.*
+*.temp.*
+*.backup
+*.old
+*.orig
+*.rej
+*.patch
+*.diff
+*.swp
+*.swo
+*.swn
+*.swo
+*.swp
+*.swx
+
+# ----------------------------
+# OS 特定文件
+# ----------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.Spotlight-V100/
+.Trashes/
+.fseventsd/
+.Safari Extensions/
+.AppleDouble/
+Network Trash Folder/
+Temporary Items/
+.fseventsd/
+.Spotlight-V100/
+.Trashes/
+.VolumeIcon.icns
+._*
+
+# ----------------------------
+# 测试相关
+# ----------------------------
+test-results/
+reports/
+*.test
+*.spec
+*.mock
+
+# ----------------------------
+# 数据库文件
+# ----------------------------
+*.db
+*.sqlite
+*.sql
+*.dat
+*.mdb
+*.accdb
+
+# ----------------------------
+# 日志文件
+# ----------------------------
+*.log
+*.err
+*.out
+*.trace
+*.debug
+*.info
+
+# ----------------------------
+# 虚拟机/容器相关
+# ----------------------------
+*.vmx
+*.vmdk
+*.vdi
+*.ova
+*.iso
+
+# ----------------------------
+# 自动化工具
+# ----------------------------
+.npmrc
+.yarnrc
+.prettierrc
+.eslintrc
+.stylelintrc
+.commitlintrc
+prettier.config.js
+eslint.config.js
+babel.config.js
+webpack.config.js
+tailwind.config.js
+next.config.js
+vite.config.js
+
+# ----------------------------
+# 其他
+# ----------------------------
+*.lock
+*.pid
+*.sock
+*.tmp
+*.part
+*.partial
+*.pending
+*.staging
+*.backup
+*.original
+*.saved
+*.uncommitted
+*.untracked

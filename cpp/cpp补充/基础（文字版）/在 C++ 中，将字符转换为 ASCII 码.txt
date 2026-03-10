@@ -1,0 +1,114 @@
+在 C++ 中，将字符转换为 ASCII 码非常简单，因为 **char 类型本质上就是一种整数类型**，它存储的就是字符的 ASCII 码值。
+
+你只需要将字符赋值给一个整型变量，或者在输出时进行类型转换即可。
+
+这里有几种常见的方法：
+
+### 方法一：直接赋值给整型变量
+
+这是最直接的方法。当你把一个 `char` 类型的变量赋值给 `int` 类型的变量时，C++ 会自动进行类型转换，将字符的 ASCII 码值赋给整型变量。
+
+```cpp
+#include <iostream>
+
+int main() {
+    char ch = 'A';
+    int ascii_code = ch; // 自动转换，ascii_code 会存储 'A' 的 ASCII 码 65
+
+    std::cout << "字符 '" << ch << "' 的 ASCII 码是: " << ascii_code << std::endl;
+
+    ch = 'z';
+    ascii_code = ch; // ascii_code 会存储 'z' 的 ASCII 码 122
+    std::cout << "字符 '" << ch << "' 的 ASCII 码是: " << ascii_code << std::endl;
+
+    return 0;
+}
+```
+
+**输出结果：**
+```
+字符 'A' 的 ASCII 码是: 65
+字符 'z' 的 ASCII 码是: 122
+```
+
+### 方法二：在输出时进行强制类型转换
+
+如果你只是想直接打印出字符的 ASCII 码，而不需要一个中间变量，可以在 `std::cout` 中使用 `static_cast<int>()` 进行强制类型转换。
+
+```cpp
+#include <iostream>
+
+int main() {
+    char ch1 = '8';
+    char ch2 = ' '; // 空格字符
+
+    std::cout << "字符 '" << ch1 << "' 的 ASCII 码是: " << static_cast<int>(ch1) << std::endl;
+    std::cout << "空格字符的 ASCII 码是: " << static_cast<int>(ch2) << std::endl;
+
+    return 0;
+}
+```
+
+**输出结果：**
+```
+字符 '8' 的 ASCII 码是: 56
+空格字符的 ASCII 码是: 32
+```
+
+### 方法三：使用 C 语言的 `printf` 函数
+
+如果你熟悉 C 语言，也可以使用 `printf` 函数，并指定格式化字符串为 `%d`（表示输出十进制整数）。`printf` 会自动将 `char` 类型的参数当作整数来处理。
+
+```cpp
+#include <cstdio> // 或者 #include <stdio.h>
+
+int main() {
+    char ch = '!';
+    printf("字符 '%c' 的 ASCII 码是: %d\n", ch, ch);
+    // %c 用来打印字符本身，%d 用来打印其对应的 ASCII 码值
+    return 0;
+}
+```
+
+**输出结果：**
+```
+字符 '!' 的 ASCII 码是: 33
+```
+
+---
+
+### 反向操作：ASCII 码转字符
+
+了解反向操作也很有用。将一个整数（ASCII 码）转换为字符，同样可以通过赋值或强制类型转换来完成。
+
+```cpp
+#include <iostream>
+
+int main() {
+    int code = 97; // 'a' 的 ASCII 码
+    char ch = code; // 自动转换
+
+    std::cout << "ASCII 码 " << code << " 对应的字符是: " << ch << std::endl;
+
+    // 使用强制类型转换
+    std::cout << "ASCII 码 100 对应的字符是: " << static_cast<char>(100) << std::endl;
+
+    return 0;
+}
+```
+
+**输出结果：**
+```
+ASCII 码 97 对应的字符是: a
+ASCII 码 100 对应的字符是: d
+```
+
+### 总结
+
+| 方法 | 优点 | 缺点 |
+| :--- | :--- | :--- |
+| **直接赋值** | 代码简洁，意图明确 | 需要一个额外的整型变量 |
+| **`static_cast`** | 无需额外变量，类型转换清晰 | 语法稍长 |
+| **`printf`** | 一行代码即可完成打印 | 是 C 语言风格，非纯 C++ |
+
+对于大多数 C++ 场景，**方法一（直接赋值）** 和 **方法二（`static_cast`）** 是最推荐的。

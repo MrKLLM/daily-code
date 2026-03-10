@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\SSStudy\\Programing\\Python\\practice\\100\\PythonApplication8\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C2775F42-ACA4-45CA-A238-91A90913FA99}|PythonApplication8\\PythonApplication8.pyproj|D:\\SSStudy\\Programing\\Python\\practice\\100\\PythonApplication8\\PythonApplication8\\PythonApplication8.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C2775F42-ACA4-45CA-A238-91A90913FA99}|PythonApplication8\\PythonApplication8.pyproj|solutionrelative:PythonApplication8\\PythonApplication8.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PythonApplication8.py",
+              "DocumentMoniker": "D:\\SSStudy\\Programing\\Python\\practice\\100\\PythonApplication8\\PythonApplication8\\PythonApplication8.py",
+              "RelativeDocumentMoniker": "PythonApplication8\\PythonApplication8.py",
+              "ToolTip": "D:\\SSStudy\\Programing\\Python\\practice\\100\\PythonApplication8\\PythonApplication8\\PythonApplication8.py*",
+              "RelativeToolTip": "PythonApplication8\\PythonApplication8.py*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2026-02-02T07:12:43.342Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

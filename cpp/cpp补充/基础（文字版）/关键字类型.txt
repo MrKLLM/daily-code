@@ -1,0 +1,73 @@
+在 C++ 编程中，关键字（Keywords）是具有特殊含义的保留字，不能用作标识符（如变量名、函数名等）。C++ 的关键字可以根据功能分为以下几类：
+1. 基本数据类型关键字
+用于声明变量的数据类型：
+
+bool：布尔类型（true/false）
+char：字符类型
+int：整数类型
+float：单精度浮点型
+double：双精度浮点型
+void：表示无类型（如无返回值函数、空指针）
+wchar_t：宽字符类型（用于多字节字符）
+char16_t、char32_t：C++11 新增，用于 UTF-16/UTF-32 字符
+2. 类型修饰符关键字
+用于修饰基本数据类型，改变其存储范围或符号属性：
+
+short：短整数（通常 2 字节）
+long：长整数（通常 4/8 字节）
+long long：更长的整数（C++11 标准化，通常 8 字节）
+signed：有符号类型（默认，可表示正负值）
+unsigned：无符号类型（仅表示非负值）
+3. 控制流关键字
+用于控制程序执行流程：
+
+条件判断：if、else、switch、case、default
+循环：for、while、do
+跳转：break、continue、return、goto
+4. 类与对象关键字
+用于面向对象编程（类、对象、继承等）：
+
+class：定义类
+struct：定义结构体（与类类似，默认成员为 public）
+union：定义联合体（共享内存的结构体）
+enum：定义枚举类型
+enum class：C++11 新增，强类型枚举
+public、private、protected：访问控制修饰符
+friend：声明友元（允许外部访问类的私有成员）
+this：指向当前对象的指针
+virtual：声明虚函数（用于多态）
+override：C++11 新增，显式声明重写父类虚函数
+final：C++11 新增，禁止类被继承或函数被重写
+explicit：防止构造函数隐式转换
+static：静态成员（属于类而非对象）
+mutable：允许常量成员函数修改该成员
+namespace：定义命名空间（避免命名冲突）
+using：引入命名空间成员或定义类型别名
+5. 函数与模板关键字
+inline：声明内联函数（建议编译器在调用处展开）
+template：定义模板（泛型编程）
+typename：用于模板中指定类型参数
+constexpr：C++11 新增，声明常量表达式（编译期计算）
+noexcept：C++11 新增，声明函数不抛出异常
+auto：C++11 新增，自动推导变量类型
+decltype：C++11 新增，推导表达式类型
+6. 内存管理关键字
+new、delete：动态内存分配与释放
+new[]、delete[]：数组的动态内存管理
+sizeof：计算类型或变量的大小（字节数）
+alignas、alignof：C++11 新增，控制内存对齐
+7. 其他关键字
+const：声明常量（不可修改的变量或成员函数）
+volatile：提示编译器变量可能被意外修改，禁止优化
+register：建议编译器将变量存储在寄存器（C++17 后弃用）
+extern：声明外部变量或函数（跨文件可见）
+typedef：定义类型别名（C++11 后逐渐被using替代）
+asm：嵌入汇编代码（平台相关）
+dynamic_cast、static_cast、const_cast、reinterpret_cast：类型转换运算符
+try、catch、throw：异常处理
+true、false：布尔常量
+nullptr：C++11 新增，空指针常量（替代NULL）
+注意事项
+C++ 标准会不断更新，新增关键字（如 C++11 的auto、nullptr，C++20 的concept等）。
+关键字区分大小写，且全部为小写。
+部分标识符（如and、or）是运算符的替代名，虽非关键字，但也具有特殊含义。
