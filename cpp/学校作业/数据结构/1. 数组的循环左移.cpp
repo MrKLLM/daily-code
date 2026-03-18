@@ -21,6 +21,6 @@ int main() {
 	for (int i = 0; i < shift; i++) {
 		cout << array_R[i] << " ";
 	}
-	
+	delete array_R;
 	return 0;
 }
