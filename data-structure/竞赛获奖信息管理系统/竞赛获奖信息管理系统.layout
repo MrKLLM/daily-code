@@ -1,0 +1,88 @@
+[
+    {
+        "caretX": 22,
+        "caretY": 63,
+        "filename": "D:/Programing/daily-code/cpp/PPProjects/竞赛获奖信息管理系统/prize_winner.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 3,
+        "top": 2046
+    },
+    {
+        "caretX": 15,
+        "caretY": 67,
+        "filename": "D:/Programing/daily-code/cpp/PPProjects/竞赛获奖信息管理系统/link.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 1815
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "D:/Programing/daily-code/cpp/PPProjects/竞赛获奖信息管理系统/test_data.txt",
+        "focused": true,
+        "isOpen": true,
+        "left": 0,
+        "order": 4,
+        "top": 0
+    },
+    {
+        "caretX": 32,
+        "caretY": 49,
+        "filename": "D:/Programing/daily-code/cpp/PPProjects/竞赛获奖信息管理系统/file.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 1,
+        "caretY": 14,
+        "filename": "D:/Programing/daily-code/cpp/PPProjects/竞赛获奖信息管理系统/file.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 1,
+        "top": 66
+    },
+    {
+        "caretX": 11,
+        "caretY": 28,
+        "filename": "D:/Programing/daily-code/cpp/PPProjects/竞赛获奖信息管理系统/public_defs.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 462
+    },
+    {
+        "caretX": 1,
+        "caretY": 194,
+        "filename": "D:/Programing/daily-code/cpp/PPProjects/竞赛获奖信息管理系统/prize_winner.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 2,
+        "top": 5808
+    },
+    {
+        "caretX": 10,
+        "caretY": 16,
+        "filename": "D:/Programing/daily-code/cpp/PPProjects/竞赛获奖信息管理系统/main.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 0,
+        "top": 429
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "D:/Programing/daily-code/cpp/PPProjects/竞赛获奖信息管理系统/link.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    }
+]

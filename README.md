@@ -43,7 +43,7 @@ git add python/calculator.py  # 精准暂存单个文件
 # git add .        # 暂存所有新增/修改的文件（推荐日常用）
 
 # 6. 提交（备注格式：类型: 描述，比如feat: 新增Python计算器脚本）
-git commit -m "feat: 新增Python计算器脚本（支持加减乘除）"
+git commit -m "feat: "
 
 # 7. 推送到远程（GitHub）
 git push

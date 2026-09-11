@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ffff"/>
+      <stop offset="100%" style="stop-color:#ff0080"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="350" fill="#0a0a1e"/>
+  <text x="350" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="url(#g1)">项目结构</text>
+
+  <rect x="30" y="55" width="150" height="70" rx="6" fill="#0d1a2a" stroke="#00ffff" stroke-width="1.2"/>
+  <text x="105" y="80" text-anchor="middle" font-size="11" font-weight="bold" fill="#00ffff">game/</text>
+  <text x="105" y="100" text-anchor="middle" font-size="9" fill="#60a0c0">游戏环境</text>
+
+  <rect x="210" y="55" width="150" height="70" rx="6" fill="#0d1a2a" stroke="#ff0080" stroke-width="1.2"/>
+  <text x="285" y="80" text-anchor="middle" font-size="11" font-weight="bold" fill="#ff0080">agent/</text>
+  <text x="285" y="100" text-anchor="middle" font-size="9" fill="#c060a0">DQN 智能体</text>
+
+  <rect x="390" y="55" width="130" height="70" rx="6" fill="#0d1a2a" stroke="#00ff80" stroke-width="1.2"/>
+  <text x="455" y="80" text-anchor="middle" font-size="11" font-weight="bold" fill="#00ff80">train.py</text>
+  <text x="455" y="100" text-anchor="middle" font-size="9" fill="#60c0a0">训练脚本</text>
+
+  <rect x="540" y="55" width="130" height="70" rx="6" fill="#0d1a2a" stroke="#ffff00" stroke-width="1.2"/>
+  <text x="605" y="80" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffff00">play.py</text>
+  <text x="605" y="100" text-anchor="middle" font-size="9" fill="#c0c060">可视化测试</text>
+
+  <rect x="30" y="150" width="150" height="70" rx="6" fill="#0d1a2a" stroke="#ff8000" stroke-width="1.2"/>
+  <text x="105" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="#ff8000">menu.py</text>
+  <text x="105" y="195" text-anchor="middle" font-size="9" fill="#c09060">主菜单</text>
+
+  <rect x="210" y="150" width="150" height="70" rx="6" fill="#0d1a2a" stroke="#8080ff" stroke-width="1.2"/>
+  <text x="285" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="#8080ff">models/</text>
+  <text x="285" y="195" text-anchor="middle" font-size="9" fill="#6060c0">模型权重</text>
+
+  <rect x="390" y="150" width="130" height="70" rx="6" fill="#0d1a2a" stroke="#a0a0a0" stroke-width="1.2"/>
+  <text x="455" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="#a0a0a0">logs/</text>
+  <text x="455" y="195" text-anchor="middle" font-size="9" fill="#808080">训练曲线</text>
+
+  <rect x="540" y="150" width="130" height="70" rx="6" fill="#0d1a2a" stroke="#60c0c0" stroke-width="1.2"/>
+  <text x="605" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="#60c0c0">*.bat</text>
+  <text x="605" y="195" text-anchor="middle" font-size="9" fill="#508080">一键运行</text>
+
+  <rect x="30" y="245" width="640" height="90" rx="6" fill="#0a0f1a" stroke="#1a3050" stroke-width="1"/>
+  <text x="50" y="270" font-size="11" font-weight="bold" fill="#00ffff">依赖库</text>
+  <text x="50" y="290" font-size="10" fill="#60a0c0">pygame（图形渲染）  numpy（数值计算）  torch（神经网络）  matplotlib（曲线绘制）</text>
+  <text x="50" y="310" font-size="10" fill="#808080">模块化设计：环境、智能体、训练、可视化各自独立，方便调试和扩展</text>
+</svg>

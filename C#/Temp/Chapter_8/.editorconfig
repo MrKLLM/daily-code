@@ -1,0 +1,9 @@
+# 必须加这一行，标记为根配置，阻止 VS 向上查找其他配置文件
+root = true
+# 对当前解决方案下的所有 C# 文件禁用 Copilot
+[*.cs]
+github.copilot.enabled = false
+
+# 也可以针对其他语言，比如 Python
+[*.py]
+github.copilot.enabled = false

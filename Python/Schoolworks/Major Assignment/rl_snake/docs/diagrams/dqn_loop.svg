@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ffff"/>
+      <stop offset="100%" style="stop-color:#ff0080"/>
+    </linearGradient>
+    <marker id="a1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#00ffff" opacity="0.7"/>
+    </marker>
+    <marker id="a2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#ff0080" opacity="0.7"/>
+    </marker>
+    <marker id="a3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#00ff80" opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <rect width="700" height="420" fill="#0a0a1e"/>
+  <text x="350" y="32" text-anchor="middle" font-size="17" font-weight="bold" fill="url(#g1)">DQN 学习循环</text>
+
+  <!-- 智能体 -->
+  <rect x="250" y="55" width="200" height="80" rx="8" fill="#0c1a2a" stroke="#00ffff" stroke-width="1.5"/>
+  <text x="350" y="82" text-anchor="middle" font-size="13" font-weight="bold" fill="#00ffff">DQN 智能体</text>
+  <text x="350" y="100" text-anchor="middle" font-size="9" fill="#60a0c0">Q 网络：13→256→256→3</text>
+  <text x="350" y="118" text-anchor="middle" font-size="9" fill="#60a0c0">ε-greedy 策略选择动作</text>
+
+  <!-- 环境 -->
+  <rect x="250" y="285" width="200" height="80" rx="8" fill="#0c1a2a" stroke="#ff0080" stroke-width="1.5"/>
+  <text x="350" y="312" text-anchor="middle" font-size="13" font-weight="bold" fill="#ff0080">贪吃蛇环境</text>
+  <text x="350" y="330" text-anchor="middle" font-size="9" fill="#c060a0">10×10 网格地图</text>
+  <text x="350" y="348" text-anchor="middle" font-size="9" fill="#c060a0">reset() / step() 接口</text>
+
+  <!-- 智能体→环境：动作 -->
+  <line x1="300" y1="135" x2="300" y2="283" stroke="#00ffff" stroke-width="1.5" marker-end="url(#a1)"/>
+  <rect x="260" y="200" width="80" height="26" rx="4" fill="#0a1525" stroke="#00ffff" stroke-width="0.8"/>
+  <text x="300" y="218" text-anchor="middle" font-size="10" font-weight="bold" fill="#00ffff">动作</text>
+  <text x="345" y="218" font-size="8" fill="#4080a0">0直行 1右转 2左转</text>
+
+  <!-- 环境→智能体：状态+奖励 -->
+  <line x1="400" y1="283" x2="400" y2="135" stroke="#ff0080" stroke-width="1.5" marker-end="url(#a2)"/>
+  <rect x="355" y="195" width="90" height="36" rx="4" fill="#0a1525" stroke="#ff0080" stroke-width="0.8"/>
+  <text x="400" y="211" text-anchor="middle" font-size="10" font-weight="bold" fill="#ff0080">状态 + 奖励</text>
+  <text x="400" y="225" text-anchor="middle" font-size="8" fill="#a04060">13维向量 + r</text>
+
+  <!-- 经验回放 -->
+  <rect x="500" y="155" width="160" height="100" rx="8" fill="#0c1a2a" stroke="#00ff80" stroke-width="1.5"/>
+  <text x="580" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#00ff80">经验回放池</text>
+  <text x="580" y="200" text-anchor="middle" font-size="9" fill="#60c0a0">容量：10万条</text>
+  <text x="580" y="218" text-anchor="middle" font-size="9" fill="#60c0a0">存储：(s, a, r, s', done)</text>
+  <text x="580" y="236" text-anchor="middle" font-size="9" fill="#60c0a0">随机采样 64 条训练</text>
+
+  <!-- 智能体→经验回放 -->
+  <line x1="450" y1="95" x2="498" y2="180" stroke="#00ff80" stroke-width="1" marker-end="url(#a3)" stroke-dasharray="4,2"/>
+
+  <!-- 奖励说明 -->
+  <rect x="30" y="55" width="180" height="120" rx="6" fill="#0a1520" stroke="#ffff00" stroke-width="1"/>
+  <text x="120" y="78" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffff00">奖励设计</text>
+  <text x="45" y="98" font-size="9" fill="#c0c060">吃到食物　　 +10</text>
+  <text x="45" y="115" font-size="9" fill="#c0c060">撞墙/撞自己　 -10</text>
+  <text x="45" y="132" font-size="9" fill="#c0c060">每走一步　　 -0.01</text>
+  <text x="45" y="149" font-size="9" fill="#c0c060">超时未吃到　 -10</text>
+  <text x="45" y="168" font-size="8" fill="#808060">鼓励高效吃食物，惩罚死亡</text>
+
+  <!-- 状态说明 -->
+  <rect x="30" y="195" width="180" height="100" rx="6" fill="#0a1520" stroke="#8080ff" stroke-width="1"/>
+  <text x="120" y="218" text-anchor="middle" font-size="11" font-weight="bold" fill="#8080ff">状态空间（13维）</text>
+  <text x="45" y="238" font-size="9" fill="#6060c0">[0-2]  危险检测（3维）</text>
+  <text x="45" y="255" font-size="9" fill="#6060c0">[3-6]  朝向 one-hot（4维）</text>
+  <text x="45" y="272" font-size="9" fill="#6060c0">[7-10] 食物方位（4维）</text>
+  <text x="45" y="289" font-size="9" fill="#6060c0">[11-12] 食物距离（2维）</text>
+
+  <!-- 关键技巧 -->
+  <rect x="500" y="280" width="160" height="90" rx="6" fill="#0a1520" stroke="#ff8000" stroke-width="1"/>
+  <text x="580" y="303" text-anchor="middle" font-size="11" font-weight="bold" fill="#ff8000">关键技巧</text>
+  <text x="515" y="323" font-size="9" fill="#c09060">目标网络（稳定训练）</text>
+  <text x="515" y="340" font-size="9" fill="#c09060">ε 衰减（1.0→0.01）</text>
+  <text x="515" y="357" font-size="9" fill="#c09060">Huber Loss（鲁棒）</text>
+
+  <!-- 底部说明 -->
+  <rect x="30" y="385" width="640" height="25" rx="4" fill="#0a0f1a" stroke="#1a3050" stroke-width="0.8"/>
+  <text x="350" y="402" text-anchor="middle" font-size="9" fill="#60a0c0">每 100 步同步策略网络 → 目标网络 ｜ 学习率 1e-3 ｜ 折扣因子 γ=0.9 ｜ 批量大小 64</text>
+</svg>

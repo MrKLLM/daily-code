@@ -1,0 +1,13 @@
+
+FullName
+--------
+D:\Programing\daily-code\cpp\PPProjects\竞赛获奖信息管理系统\input.cpp
+D:\Programing\daily-code\cpp\PPProjects\竞赛获奖信息管理系统\input.h
+D:\Programing\daily-code\cpp\PPProjects\竞赛获奖信息管理系统\link.cpp
+D:\Programing\daily-code\cpp\PPProjects\竞赛获奖信息管理系统\link.h
+D:\Programing\daily-code\cpp\PPProjects\竞赛获奖信息管理系统\main.cpp
+D:\Programing\daily-code\cpp\PPProjects\竞赛获奖信息管理系统\output.cpp
+D:\Programing\daily-code\cpp\PPProjects\竞赛获奖信息管理系统\prize_winner.cpp
+D:\Programing\daily-code\cpp\PPProjects\竞赛获奖信息管理系统\prize_winner.h
+D:\Programing\daily-code\cpp\PPProjects\竞赛获奖信息管理系统\public_defs.h
+

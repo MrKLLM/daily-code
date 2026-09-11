@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ffff"/>
+      <stop offset="100%" style="stop-color:#ff0080"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="400" fill="#0a0a1e"/>
+  <text x="350" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="url(#g1)">游戏界面布局</text>
+
+  <!-- 游戏区域 -->
+  <rect x="30" y="55" width="320" height="320" rx="6" fill="#0c1220" stroke="#00ffff" stroke-width="1.5"/>
+  <text x="190" y="80" text-anchor="middle" font-size="12" font-weight="bold" fill="#00ffff">游戏区域</text>
+  <rect x="50" y="95" width="280" height="260" rx="4" fill="#0a0a1a" stroke="#1a3050" stroke-width="0.8"/>
+  <text x="190" y="180" text-anchor="middle" font-size="28" fill="#00ff80">🐍</text>
+  <text x="190" y="210" text-anchor="middle" font-size="10" fill="#406080">10×10 网格地图</text>
+  <text x="190" y="225" text-anchor="middle" font-size="10" fill="#406080">霓虹网格线 + 棋盘格背景</text>
+  <text x="190" y="240" text-anchor="middle" font-size="10" fill="#406080">脉冲发光食物</text>
+  <text x="190" y="255" text-anchor="middle" font-size="10" fill="#406080">渐变色蛇身 + 蛇头眼睛</text>
+  <text x="190" y="270" text-anchor="middle" font-size="10" fill="#406080">CRT 扫描线特效</text>
+
+  <!-- 侧边栏 -->
+  <rect x="365" y="55" width="150" height="320" rx="6" fill="#0c1220" stroke="#ff0080" stroke-width="1.5"/>
+  <text x="440" y="80" text-anchor="middle" font-size="12" font-weight="bold" fill="#ff0080">侧边栏</text>
+  <text x="380" y="110" font-size="10" fill="#c060a0">SCORE  当前分数</text>
+  <text x="380" y="135" font-size="10" fill="#c060a0">BEST   最高分</text>
+  <text x="380" y="160" font-size="10" fill="#808080">LEN    蛇长度</text>
+  <text x="380" y="180" font-size="10" fill="#808080">STEP   步数</text>
+  <text x="380" y="205" font-size="10" fill="#808080">EP     回合数</text>
+  <text x="380" y="225" font-size="10" fill="#808080">SPD    速度</text>
+  <text x="380" y="250" font-size="10" fill="#808080">DIR    朝向</text>
+  <text x="380" y="280" font-size="10" fill="#00ff80">RL SNAKE 复选框</text>
+  <text x="380" y="300" font-size="9" fill="#608060">勾选后 AI 自动接管</text>
+  <text x="380" y="330" font-size="9" fill="#808080">[SPACE] 暂停</text>
+  <text x="380" y="348" font-size="9" fill="#808080">[ESC] 退出</text>
+
+  <!-- 操作说明 -->
+  <rect x="530" y="55" width="140" height="320" rx="6" fill="#0c1220" stroke="#ffff00" stroke-width="1.2"/>
+  <text x="600" y="80" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffff00">操作方式</text>
+  <text x="545" y="110" font-size="10" fill="#c0c060">方向键 ↑↓←→</text>
+  <text x="545" y="130" font-size="9" fill="#808060">控制蛇的移动</text>
+  <text x="545" y="165" font-size="10" fill="#c0c060">空格键</text>
+  <text x="545" y="185" font-size="9" fill="#808060">暂停/继续</text>
+  <text x="545" y="220" font-size="10" fill="#c0c060">ESC</text>
+  <text x="545" y="240" font-size="9" fill="#808060">退出游戏</text>
+  <text x="545" y="280" font-size="10" fill="#c0c060">鼠标点击</text>
+  <text x="545" y="300" font-size="9" fill="#808060">菜单选择</text>
+</svg>

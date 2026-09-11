@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff80"/>
+      <stop offset="100%" style="stop-color:#00ffff"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="350" fill="#0a0a1e"/>
+  <text x="350" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="url(#g1)">学到的技能</text>
+
+  <rect x="30" y="55" width="200" height="180" rx="6" fill="#0c1a2a" stroke="#00ffff" stroke-width="1.2"/>
+  <text x="130" y="78" text-anchor="middle" font-size="12" font-weight="bold" fill="#00ffff">强化学习</text>
+  <text x="45" y="100" font-size="9" fill="#60a0c0">- MDP 框架</text>
+  <text x="45" y="118" font-size="9" fill="#60a0c0">- DQN 算法原理</text>
+  <text x="45" y="136" font-size="9" fill="#60a0c0">- 经验回放</text>
+  <text x="45" y="154" font-size="9" fill="#60a0c0">- 奖励设计</text>
+  <text x="45" y="172" font-size="9" fill="#60a0c0">- 超参数调优</text>
+  <text x="45" y="190" font-size="9" fill="#60a0c0">- 训练曲线分析</text>
+  <text x="45" y="208" font-size="9" fill="#60a0c0">- 状态特征工程</text>
+
+  <rect x="250" y="55" width="200" height="180" rx="6" fill="#1a0a2a" stroke="#ff0080" stroke-width="1.2"/>
+  <text x="350" y="78" text-anchor="middle" font-size="12" font-weight="bold" fill="#ff0080">编程技能</text>
+  <text x="265" y="100" font-size="9" fill="#c060a0">- Python OOP 设计</text>
+  <text x="265" y="118" font-size="9" fill="#c060a0">- Pygame 游戏开发</text>
+  <text x="265" y="136" font-size="9" fill="#c060a0">- PyTorch 网络构建</text>
+  <text x="265" y="154" font-size="9" fill="#c060a0">- Gym 风格 API</text>
+  <text x="265" y="172" font-size="9" fill="#c060a0">- Matplotlib 可视化</text>
+  <text x="265" y="190" font-size="9" fill="#c060a0">- 模型保存/加载</text>
+  <text x="265" y="208" font-size="9" fill="#c060a0">- CLI 参数解析</text>
+
+  <rect x="470" y="55" width="200" height="180" rx="6" fill="#0a1a0a" stroke="#00ff80" stroke-width="1.2"/>
+  <text x="570" y="78" text-anchor="middle" font-size="12" font-weight="bold" fill="#00ff80">工程实践</text>
+  <text x="485" y="100" font-size="9" fill="#60c0a0">- 模块化架构</text>
+  <text x="485" y="118" font-size="9" fill="#60c0a0">- 调试与根因分析</text>
+  <text x="485" y="136" font-size="9" fill="#60c0a0">- 性能优化</text>
+  <text x="485" y="154" font-size="9" fill="#60c0a0">- 错误处理</text>
+  <text x="485" y="172" font-size="9" fill="#60c0a0">- UI/UX 设计</text>
+  <text x="485" y="190" font-size="9" fill="#60c0a0">- Git 版本控制</text>
+  <text x="485" y="208" font-size="9" fill="#60c0a0">- BAT 自动化</text>
+
+  <rect x="30" y="255" width="640" height="80" rx="6" fill="#0c0c1a" stroke="#8080ff" stroke-width="1.2"/>
+  <text x="350" y="278" text-anchor="middle" font-size="11" font-weight="bold" fill="#8080ff">掌握的完整流程</text>
+  <text x="50" y="300" font-size="10" fill="#8080c0">环境搭建 → 状态设计 → 奖励设计 → 训练调参 → 可视化验证 → 调试修复</text>
+  <text x="50" y="320" font-size="10" fill="#808080">这套流程可复用到其他强化学习项目中</text>
+</svg>

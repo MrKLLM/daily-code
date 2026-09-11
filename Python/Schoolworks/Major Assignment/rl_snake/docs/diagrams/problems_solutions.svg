@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 430" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff4444"/>
+      <stop offset="100%" style="stop-color:#ff8800"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="430" fill="#0a0a1e"/>
+  <text x="350" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="url(#g1)">遇到的问题</text>
+
+  <!-- 问题1：地图太大 -->
+  <rect x="30" y="55" width="310" height="115" rx="6" fill="#1a0a0a" stroke="#ff4444" stroke-width="1.2"/>
+  <text x="185" y="78" text-anchor="middle" font-size="12" font-weight="bold" fill="#ff4444">地图太大，训练效率低</text>
+  <text x="50" y="98" font-size="9" fill="#c06060">原因：20×20=400格，状态空间过大</text>
+  <text x="50" y="115" font-size="9" fill="#c06060">前几十轮 AI 根本吃不到食物</text>
+  <text x="50" y="132" font-size="9" fill="#c06060">修复：缩小到 10×10，降低复杂度</text>
+  <text x="50" y="150" font-size="9" fill="#60a060">结果：几十轮内就能稳定得分</text>
+
+  <!-- 问题2：AI学不会 -->
+  <rect x="360" y="55" width="310" height="115" rx="6" fill="#1a0a0a" stroke="#ff4444" stroke-width="1.2"/>
+  <text x="515" y="78" text-anchor="middle" font-size="12" font-weight="bold" fill="#ff4444">AI 学不会吃食物</text>
+  <text x="380" y="98" font-size="9" fill="#c06060">原因：状态缺距离信息 + ε衰减过快</text>
+  <text x="380" y="115" font-size="9" fill="#c06060">修复：扩展到13维 + 调整衰减系数</text>
+  <text x="380" y="132" font-size="9" fill="#60a060">结果：修复后 AI 能正常学习</text>
+
+  <!-- 问题3：界面卡顿 -->
+  <rect x="30" y="185" width="310" height="100" rx="6" fill="#1a0a0a" stroke="#ff4444" stroke-width="1.2"/>
+  <text x="185" y="208" text-anchor="middle" font-size="12" font-weight="bold" fill="#ff4444">界面卡顿严重</text>
+  <text x="50" y="228" font-size="9" fill="#c06060">原因：clock.tick 限制了整个循环帧率</text>
+  <text x="50" y="245" font-size="9" fill="#c06060">修复：输入处理与游戏逻辑分离</text>
+  <text x="50" y="265" font-size="9" fill="#60a060">结果：操作流畅，延迟消除</text>
+
+  <!-- 问题4：RL复选框 -->
+  <rect x="360" y="185" width="310" height="100" rx="6" fill="#1a0a0a" stroke="#ff4444" stroke-width="1.2"/>
+  <text x="515" y="208" text-anchor="middle" font-size="12" font-weight="bold" fill="#ff4444">RL 复选框无反应</text>
+  <text x="380" y="228" font-size="9" fill="#c06060">原因：模型不存在时直接退出游戏</text>
+  <text x="380" y="245" font-size="9" fill="#c06060">修复：改为显示错误提示信息</text>
+  <text x="380" y="265" font-size="9" fill="#60a060">结果：友好提示，不再崩溃</text>
+
+  <!-- 问题5：速度太快 -->
+  <rect x="30" y="300" width="310" height="100" rx="6" fill="#1a0a0a" stroke="#ff4444" stroke-width="1.2"/>
+  <text x="185" y="323" text-anchor="middle" font-size="12" font-weight="bold" fill="#ff4444">后期速度太快</text>
+  <text x="50" y="343" font-size="9" fill="#c06060">原因：线性增长导致无法控制</text>
+  <text x="50" y="360" font-size="9" fill="#c06060">修复：改用 sqrt 函数非线性增长</text>
+  <text x="50" y="380" font-size="9" fill="#60a060">结果：速度平滑递增</text>
+
+  <!-- 经验总结 -->
+  <rect x="360" y="300" width="310" height="100" rx="5" fill="#0a1a0a" stroke="#00ff80" stroke-width="1"/>
+  <text x="515" y="323" text-anchor="middle" font-size="11" font-weight="bold" fill="#00ff80">经验教训</text>
+  <text x="375" y="343" font-size="9" fill="#60c0a0">1. 地图大小直接影响训练效率</text>
+  <text x="375" y="360" font-size="9" fill="#60c0a0">2. 状态设计是关键</text>
+  <text x="375" y="377" font-size="9" fill="#60c0a0">3. 超参数微小变化决定成败</text>
+  <text x="375" y="394" font-size="9" fill="#60c0a0">4. 错误要优雅处理</text>
+</svg>

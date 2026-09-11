@@ -64,32 +64,6 @@ SyncProduct = 1
 
 
 [Unit1]
-FileName = out.txt
-CompileCpp = 1
-Folder = 其他文件
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit2]
-FileName = public_defs.h
-CompileCpp = 0
-Folder = 头文件
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit3]
 FileName = input.cpp
 CompileCpp = 1
 Folder = 源文件
@@ -102,20 +76,7 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit4]
-FileName = main.cpp
-CompileCpp = 1
-Folder = 源文件
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit5]
+[Unit2]
 FileName = output.h
 CompileCpp = 0
 Folder = 头文件
@@ -128,8 +89,8 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit6]
-FileName = input.txt
+[Unit3]
+FileName = insert.txt
 CompileCpp = 1
 Folder = 其他文件
 Compile = 0
@@ -141,7 +102,7 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit7]
+[Unit4]
 FileName = input.h
 CompileCpp = 0
 Folder = 头文件
@@ -154,21 +115,8 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit8]
-FileName = find.txt
-CompileCpp = 0
-Folder = 其他文件
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit9]
-FileName = volunteer.h
+[Unit5]
+FileName = public_defs.h
 CompileCpp = 0
 Folder = 头文件
 Compile = 0
@@ -180,8 +128,8 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit10]
-FileName = link.cpp
+[Unit6]
+FileName = main.cpp
 CompileCpp = 1
 Folder = 源文件
 Compile = 1
@@ -193,33 +141,7 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit11]
-FileName = output.cpp
-CompileCpp = 1
-Folder = 源文件
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit12]
-FileName = insert.txt
-CompileCpp = 0
-Folder = 其他文件
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit13]
+[Unit7]
 FileName = menu.txt
 CompileCpp = 0
 Folder = 其他文件
@@ -229,10 +151,10 @@ Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = ASCII
+RealEncoding = UTF-8
 
 
-[Unit14]
+[Unit8]
 FileName = link.h
 CompileCpp = 0
 Folder = 头文件
@@ -245,8 +167,21 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit15]
-FileName = volunteer.cpp
+[Unit9]
+FileName = input.txt
+CompileCpp = 0
+Folder = 其他文件
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit10]
+FileName = output.cpp
 CompileCpp = 1
 Folder = 源文件
 Compile = 1
@@ -258,12 +193,77 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit16]
-FileName = attention.txt
+[Unit11]
+FileName = out.txt
 CompileCpp = 1
 Folder = 其他文件
 Compile = 0
 Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit12]
+FileName = find.txt
+CompileCpp = 0
+Folder = 其他文件
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit13]
+FileName = link.cpp
+CompileCpp = 1
+Folder = 源文件
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit14]
+FileName = attention.txt
+CompileCpp = 0
+Folder = 其他文件
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit15]
+FileName = volunteer.h
+CompileCpp = 0
+Folder = 头文件
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit16]
+FileName = volunteer.cpp
+CompileCpp = 1
+Folder = 源文件
+Compile = 1
+Link = 1
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 

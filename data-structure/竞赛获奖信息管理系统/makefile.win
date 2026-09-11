@@ -1,0 +1,46 @@
+# Project: 竞赛获奖信息管理系统
+# Makefile created by Red Panda C++ 3.3.3147
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-Wl,--stack,12582912"
+INCS     = 
+CXXINCS  = 
+CXXFLAGS = $(CXXINCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+CFLAGS   = $(INCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+WINDRESFLAGS = 
+RES      = 竞赛获奖信息管理系统_private.res
+OBJ      = link.o file.o prize_winner.o main.o $(RES)
+BIN      = 竞赛获奖信息管理系统.exe
+LINKOBJ  = "link.o" "file.o" "prize_winner.o" "main.o" "竞赛获奖信息管理系统_private.res"
+CLEANOBJ = "link.o" "file.o" "prize_winner.o" "main.o" "竞赛获奖信息管理系统_private.res" "竞赛获奖信息管理系统.exe"
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) >NUL 2>&1
+
+竞赛获奖信息管理系统.exe: $(OBJ)
+
+	$(CXX) $(LINKOBJ) -o "竞赛获奖信息管理系统.exe" $(LIBS)
+
+link.o: link.cpp public_defs.h link.h
+	$(CXX) -c "link.cpp" -o "link.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+file.o: file.cpp file.h public_defs.h link.h
+	$(CXX) -c "file.cpp" -o "file.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+prize_winner.o: prize_winner.cpp prize_winner.h file.h public_defs.h link.h
+	$(CXX) -c "prize_winner.cpp" -o "prize_winner.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+main.o: main.cpp prize_winner.h file.h public_defs.h link.h
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+竞赛获奖信息管理系统_private.res: 竞赛获奖信息管理系统_private.rc 
+	$(WINDRES) -i "竞赛获奖信息管理系统_private.rc" --input-format=rc -o "竞赛获奖信息管理系统_private.res" -O coff $(WINDRESFLAGS) 
+
