@@ -1,6 +1,7 @@
 # ===== IDE / 编辑器缓存 =====
 .vs/
 .vscode/
+.trae/
 .idea/
 *.swp
 *.swo
