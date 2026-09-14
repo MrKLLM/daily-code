@@ -45,8 +45,26 @@ env/
 .packages
 *.iml
 
-# ===== Node（如临时用到）=====
+# ===== another=====
 node_modules/
+
+# ===== 数据库文件 =====
+# SQL 脚本
+*.sql
+# SQL Server: mdf 主数据 / ldf 日志 / ndf 辅助数据 / sdf (SQL Server CE)
+*.mdf
+*.ldf
+*.ndf
+*.sdf
+# SQLite 及其他通用数据库
+*.db
+*.db3
+*.sqlite
+*.sqlite3
+# 数据库导出转储
+*.dump
+# SSMS 数据库备份默认目录
+Backups/
 
 # ===== 临时文件 =====
 *.tmp
