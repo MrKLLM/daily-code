@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="../ConstrainAndRelation/ConstrainAndRelation.csproj" />
-  <Project Path="../Database_First/Database_First.csproj" Id="405190bf-2a0d-48c2-a739-d9b85b247b14" />
-  <Project Path="EFCore_First.csproj" />
-</Solution>
