@@ -1,1 +1,5 @@
-<Solution />
+<Solution>
+  <Project Path="ConstrainAndRelation/ConstrainAndRelation.csproj" />
+  <Project Path="Database_First/Database_First.csproj" />
+  <Project Path="EFCore_First/EFCore_First.csproj" />
+</Solution>
