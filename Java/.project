@@ -14,4 +14,21 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/chapter03/IntersectionOfIntegers.java</name>
+			<type>1</type>
+			<location>D:/Programing/daily-code/Java/src/chapter03/IntersectionOfIntegers.java</location>
+		</link>
+		<link>
+			<name>src/chapter03/StataticsCourseGrades.java</name>
+			<type>1</type>
+			<location>D:/Programing/daily-code/Java/src/chapter03/StataticsCourseGrades.java</location>
+		</link>
+		<link>
+			<name>src/chapter03/StuGradeSort.java</name>
+			<type>1</type>
+			<location>D:/Programing/daily-code/Java/src/chapter03/StuGradeSort.java</location>
+		</link>
+	</linkedResources>
 </projectDescription>

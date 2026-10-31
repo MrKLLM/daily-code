@@ -1,0 +1,16 @@
+v 4
+file . "tb_bcd_adder.vhd" "4d84093869d6011bd122e0726148f34e50e09b03" "20261027083002.310":
+  entity tb_bcd_adder at 1( 0) + 0 on 19;
+  architecture behavior of tb_bcd_adder at 7( 92) + 0 on 20;
+file . "four_bit_adder.vhd" "71c1d32a8c9810cd02a645865800e3744baece10" "20261027083002.157":
+  entity four_bit_adder at 1( 0) + 0 on 15;
+  architecture structure of four_bit_adder at 12( 322) + 0 on 16;
+file . "half_adder.vhd" "e2fd2384505f054fc2dcdd74724ef3b0e5190e72" "20261027083001.868":
+  entity half_adder at 1( 0) + 0 on 11;
+  architecture structure of half_adder at 11( 217) + 0 on 12;
+file . "full_adder.vhd" "f130cc4b9a2fe66566ac3e87b0ce88e910b3b494" "20261027083002.086":
+  entity full_adder at 1( 0) + 0 on 13;
+  architecture structure of full_adder at 12( 254) + 0 on 14;
+file . "bcd_adder.vhd" "c9891e3f6e6abc363131c9fc7985ad857e1c139c" "20261027083002.231":
+  entity bcd_adder at 1( 0) + 0 on 17;
+  architecture structure of bcd_adder at 12( 322) + 0 on 18;

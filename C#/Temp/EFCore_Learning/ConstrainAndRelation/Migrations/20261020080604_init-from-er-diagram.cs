@@ -130,13 +130,13 @@ namespace ConstrainAndRelation.Migrations
                         column: x => x.CoursesCourseId,
                         principalTable: "Courses",
                         principalColumn: "CourseId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_CourseInstructor_Instructors_InstructorsInstructorId",
                         column: x => x.InstructorsInstructorId,
                         principalTable: "Instructors",
                         principalColumn: "InstructorId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
