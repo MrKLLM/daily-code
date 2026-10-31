@@ -1,0 +1,29 @@
+name: VHDL_Lab
+toplevel: tb_bcd_adder
+files:
+  - name: half_adder.vhd
+    file_type: vhdlSource-2008
+    is_include_file: false
+    logical_name: work
+  - name: full_adder.vhd
+    file_type: vhdlSource-2008
+    is_include_file: false
+    logical_name: work
+  - name: four_bit_adder.vhd
+    file_type: vhdlSource-2008
+    is_include_file: false
+    logical_name: work
+  - name: bcd_adder.vhd
+    file_type: vhdlSource-2008
+    is_include_file: false
+    logical_name: work
+  - name: tb_bcd_adder.vhd
+    file_type: vhdlSource-2008
+    is_include_file: false
+    logical_name: work
+tool_options:
+  ghdl:
+    installation_path: D:/Programing/msys64/ucrt64/bin/ghdl.exe
+    waveform: gtkwave
+    analyze_options: --std=08
+    run_options: --wave=wave.ghw

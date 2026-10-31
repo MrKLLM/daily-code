@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="5.0.0" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v5.0.0(https://github.com/logisim-evolution/).
+
+  <lib desc="#Wiring" name="0">
+    <tool name="Pin">
+      <a name="appearance" val="classic"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#FPArithmetic" name="4"/>
+  <lib desc="#Memory" name="5"/>
+  <lib desc="#I/O" name="6"/>
+  <lib desc="#TTL" name="7"/>
+  <lib desc="#TCL" name="8"/>
+  <lib desc="#Base" name="9"/>
+  <lib desc="#BFH-Praktika" name="10"/>
+  <lib desc="#Input/Output-Extra" name="11"/>
+  <lib desc="#Soc" name="12"/>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool map="Button2" name="Poke Tool"/>
+    <tool map="Button3" name="Menu Tool"/>
+    <tool map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool name="Poke Tool"/>
+    <tool name="Edit Tool"/>
+    <tool name="Wiring Tool"/>
+    <tool name="Text Tool"/>
+    <tool name="Image"/>
+    <sep/>
+    <tool name="Pin"/>
+    <tool name="Pin">
+      <a name="facing" val="west"/>
+      <a name="type" val="output"/>
+    </tool>
+    <sep/>
+    <tool name="NOT Gate"/>
+    <tool name="AND Gate"/>
+    <tool name="OR Gate"/>
+    <tool name="XOR Gate"/>
+    <tool name="NAND Gate"/>
+    <tool name="NOR Gate"/>
+    <sep/>
+    <tool name="D Flip-Flop"/>
+    <tool name="Register"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="main"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp loc="(330,220)" name="bcd_adder"/>
+    <comp loc="(570,510)" name="four_bit_adder"/>
+    <comp loc="(650,320)" name="full_adder"/>
+    <comp loc="(690,180)" name="half_adder"/>
+  </circuit>
+  <vhdl appearance="logisim_evolution" name="half_adder">-- ============================================================
+-- 半加器 (Half Adder)
+-- 功能: 计算 1 位二进制加法, 不考虑来自低位的进位
+-- 输入: A, B (两个1位加数)
+-- 输出: S (和), C (向高位的进位)
+-- 逻辑: S = A XOR B,  C = A AND B
+-- ============================================================
+
+-- library 声明: 告诉编译器我们要用哪个库
+-- IEEE 是标准库, STD_LOGIC_1164 里定义了 std_logic 类型
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- entity (实体): 定义电路的"外接口"——有哪些输入输出端口
+-- 就像画芯片的引脚图, entity 只规定接口, 不规定内部怎么做
+entity half_adder is
+    Port ( A  : in  STD_LOGIC;   -- in 表示输入; STD_LOGIC 是标准逻辑类型(0/1/X/Z)
+           B  : in  STD_LOGIC;
+           S  : out STD_LOGIC;   -- out 表示输出
+           C  : out STD_LOGIC);
+end half_adder;                  -- entity 结束
+
+-- architecture (结构体): 定义电路的"内部实现"
+-- 一个 entity 可以对应多个 architecture, 这里我们用结构描述
+architecture structure of half_adder is
+begin
+    -- begin ... end 之间是真正的电路行为描述
+
+    -- &lt;= 是信号赋值符号 (区别于变量赋值 :=)
+    -- 这里直接用布尔运算描述: 异或得到和, 与得到进位
+    S &lt;= A xor B;   -- xor = 异或门
+    C &lt;= A and B;   -- and = 与门
+
+end structure;                  -- architecture 结束</vhdl>
+  <vhdl appearance="logisim_evolution" name="full_adder">-- ============================================================
+-- 全加器 (Full Adder)
+-- 功能: 计算 1 位二进制加法, 考虑来自低位的进位 Cin
+-- 输入: A, B (两个1位加数), Cin (来自低位的进位)
+-- 输出: S (和), Cout (向高位的进位)
+-- 结构描述: 用 2 个半加器 + 1 个或门组成
+-- ============================================================
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity full_adder is
+    Port ( A   : in  STD_LOGIC;
+           B   : in  STD_LOGIC;
+           Cin : in  STD_LOGIC;   -- 新增: 来自低位的进位
+           S   : out STD_LOGIC;
+           Cout: out STD_LOGIC);  -- 向高位的进位
+end full_adder;
+
+architecture structure of full_adder is
+
+    -- component (元件声明): 告诉编译器我们要用到 half_adder 这个子模块
+    -- 写法和 entity 的 Port 一模一样, 但关键字是 component/end component
+    component half_adder is
+        Port ( A : in  STD_LOGIC;
+               B : in  STD_LOGIC;
+               S : out STD_LOGIC;
+               C : out STD_LOGIC);
+    end component;
+
+    -- signal (信号声明): 定义模块内部的连接线
+    -- s1, c1 是第一个半加器的输出; c2 是第二个半加器的进位输出
+    signal s1, c1, c2 : STD_LOGIC;
+
+begin
+    -- port map (端口映射): 把元件的端口连接到实际信号上
+    -- u1, u2 是元件实例名, 随便起
+    -- 箭头 A =&gt; A 意思是: 元件端口 A 连接到当前模块的信号 A
+
+    -- 第一个半加器: 先算 A + B, 得到中间和 s1 和中间进位 c1
+    u1: half_adder port map(A =&gt; A,  B =&gt; B,  S =&gt; s1, C =&gt; c1);
+
+    -- 第二个半加器: 再把中间和 s1 加上 Cin, 得到最终和 S 和另一个进位 c2
+    u2: half_adder port map(A =&gt; s1, B =&gt; Cin, S =&gt; S,  C =&gt; c2);
+
+    -- 最终进位 = 两个半加器进位的或 (只要任意一个产生进位就进位)
+    Cout &lt;= c1 or c2;
+
+end structure;</vhdl>
+  <vhdl appearance="logisim_evolution" name="four_bit_adder">-- ============================================================
+-- 4 位二进制加法器 (Four-Bit Binary Adder)
+-- 功能: 计算两个 4 位二进制数相加
+-- 输入: A(3:0), B(3:0), Cin (来自低位的进位)
+-- 输出: S(3:0) (和), Cout (向高位的进位)
+-- 结构描述: 级联 4 个全加器, 低位进位输出连到高位进位输入
+-- ============================================================
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity four_bit_adder is
+    Port ( A   : in  STD_LOGIC_VECTOR (3 downto 0);   -- 4 位向量, 从高位(3)到低位(0)
+           B   : in  STD_LOGIC_VECTOR (3 downto 0);
+           Cin : in  STD_LOGIC;
+           S   : out STD_LOGIC_VECTOR (3 downto 0);
+           Cout: out STD_LOGIC);
+end four_bit_adder;
+
+architecture structure of four_bit_adder is
+
+    -- 声明要用到的子模块: full_adder
+    component full_adder is
+        Port ( A   : in  STD_LOGIC;
+               B   : in  STD_LOGIC;
+               Cin : in  STD_LOGIC;
+               S   : out STD_LOGIC;
+               Cout: out STD_LOGIC);
+    end component;
+
+    -- 内部进位信号 c(0)~c(2): 相邻全加器之间的进位连接线
+    signal c : STD_LOGIC_VECTOR (3 downto 0);
+
+begin
+    -- 实例化 4 个全加器, 串联起来组成 4 位加法器
+    -- u0 是最低位, u3 是最高位
+
+    -- 第0位: 直接用外部 Cin
+    u0: full_adder port map(A =&gt; A(0), B =&gt; B(0), Cin =&gt; Cin,    S =&gt; S(0), Cout =&gt; c(0));
+
+    -- 第1位: 进位来自第0位的 c(0)
+    u1: full_adder port map(A =&gt; A(1), B =&gt; B(1), Cin =&gt; c(0),   S =&gt; S(1), Cout =&gt; c(1));
+
+    -- 第2位: 进位来自第1位的 c(1)
+    u2: full_adder port map(A =&gt; A(2), B =&gt; B(2), Cin =&gt; c(1),   S =&gt; S(2), Cout =&gt; c(2));
+
+    -- 第3位: 进位来自第2位的 c(2); 其 Cout 直接作为整个加法器的进位输出
+    u3: full_adder port map(A =&gt; A(3), B =&gt; B(3), Cin =&gt; c(2),   S =&gt; S(3), Cout =&gt; Cout);
+
+end structure;</vhdl>
+  <vhdl appearance="logisim_evolution" name="bcd_adder">-- ============================================================
+-- 8421 BCD 码十进制加法器
+-- 功能: 计算两个 1 位十进制数 (0~9, 用 8421BCD 编码) 相加
+-- 输入: A(3:0), B(3:0) —— 两个BCD加数
+--       Cin —— 来自低位十进制的进位
+-- 输出: Sum(3:0) —— BCD 和
+--       Dout —— 向高位十进制的进位
+-- 原理: 先用二进制加法器相加, 然后判断是否需要加 6 修正
+--       (因为 BCD 中 1010~1111 是无效状态, 遇到时加 0110 修正)
+-- ============================================================
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity bcd_adder is
+    Port ( A     : in  STD_LOGIC_VECTOR (3 downto 0);
+           B     : in  STD_LOGIC_VECTOR (3 downto 0);
+           Cin   : in  STD_LOGIC;
+           Sum   : out STD_LOGIC_VECTOR (3 downto 0);
+           Dout  : out STD_LOGIC);     -- Decimal output carry, 十进制进位
+end bcd_adder;
+
+architecture structure of bcd_adder is
+
+    -- 声明要用到的子模块: 4 位二进制加法器
+    component four_bit_adder is
+        Port ( A   : in  STD_LOGIC_VECTOR (3 downto 0);
+               B   : in  STD_LOGIC_VECTOR (3 downto 0);
+               Cin : in  STD_LOGIC;
+               S   : out STD_LOGIC_VECTOR (3 downto 0);
+               Cout: out STD_LOGIC);
+    end component;
+
+    -- ===== 内部信号定义 =====
+
+    -- 第一次加法的结果: 二进制和 + 进位
+    signal bin_sum    : STD_LOGIC_VECTOR (3 downto 0);   -- 二进制相加得到的和
+    signal bin_cout   : STD_LOGIC;                       -- 二进制相加得到的进位
+
+    -- 是否需要修正的判断信号
+    -- 当 (1) 有进位 或 (2) 和 &gt; 9 (即 1010~1111) 时需要修正
+    signal corr_need  : STD_LOGIC;
+
+    -- 如果需要修正, 要给 bin_sum 加上的数 (无进位时为 0000, 有修正时为 0110)
+    signal zero_plus6 : STD_LOGIC_VECTOR (3 downto 0);
+    signal zero_cin   : STD_LOGIC;   -- 第二次加法的 Cin, 固定为 0
+
+begin
+
+    -- ===== 第一步: 先做二进制加法 =====
+    -- 把两个 BCD 数当作普通 4 位二进制数相加
+    u_bin_adder: four_bit_adder
+        port map(A =&gt; A, B =&gt; B, Cin =&gt; Cin, S =&gt; bin_sum, Cout =&gt; bin_cout);
+
+    -- ===== 第二步: 判断是否需要加 6 修正 =====
+    -- BCD 修正条件 = 有进位 OR 结果在 1010~1111 之间
+    -- 结果 &gt; 9 的条件写成布尔式:
+    --   bit3=1 且 (bit2=1 或 bit1=1)
+    corr_need &lt;= bin_cout or (bin_sum(3) and (bin_sum(2) or bin_sum(1)));
+
+    -- ===== 第三步: 构造修正值 =====
+    -- corr_need = 0 时, zero_plus6 = 0000 (不加)
+    -- corr_need = 1 时, zero_plus6 = 0110 (加6)
+    -- 0110 的 4 位分别是: bit3=0, bit2=corr_need, bit1=corr_need, bit0=0
+    zero_plus6(0) &lt;= '0';
+    zero_plus6(1) &lt;= corr_need;
+    zero_plus6(2) &lt;= corr_need;
+    zero_plus6(3) &lt;= '0';
+
+    zero_cin &lt;= '0';   -- 第二次加法没有额外的进位输入
+
+    -- ===== 第四步: 做修正加法 =====
+    -- 把二进制和 bin_sum 加上修正值 zero_plus6, 得到最终 BCD 和
+    u_corr_adder: four_bit_adder
+        port map(A =&gt; bin_sum, B =&gt; zero_plus6, Cin =&gt; zero_cin,
+                 S =&gt; Sum, Cout =&gt; open);   -- open 表示不关心这个输出
+
+    -- 最终的十进制进位 = 是否需要修正 (因为 bin_cout 已经被包含在 corr_need 里)
+    Dout &lt;= corr_need;
+
+end structure;</vhdl>
+</project>

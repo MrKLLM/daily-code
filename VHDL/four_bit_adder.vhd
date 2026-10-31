@@ -29,7 +29,7 @@ architecture structure of four_bit_adder is
     end component;
 
     -- 内部进位信号 c(0)~c(2): 相邻全加器之间的进位连接线
-    signal c : STD_LOGIC_VECTOR (3 downto 0);
+    signal c : STD_LOGIC_VECTOR (2 downto 0);
 
 begin
     -- 实例化 4 个全加器, 串联起来组成 4 位加法器
