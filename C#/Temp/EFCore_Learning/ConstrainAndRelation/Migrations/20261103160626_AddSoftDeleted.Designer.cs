@@ -12,15 +12,18 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConstrainAndRelation.Migrations
 {
     [DbContext(typeof(Solaris_3Context))]
-    [Migration("20261028141758_Resonator_Update")]
-    partial class Resonator_Update
+    [Migration("20261103160626_AddSoftDeleted")]
+    partial class AddSoftDeleted
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.13")
+                .HasAnnotation("ProductVersion", "10.0.14")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -46,6 +49,32 @@ namespace ConstrainAndRelation.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Courses");
+
+                    b.HasData(
+                        new
+                        {
+                            CourseId = 1,
+                            DepartmentId = 1,
+                            Title = "共鸣理论基础"
+                        },
+                        new
+                        {
+                            CourseId = 2,
+                            DepartmentId = 1,
+                            Title = "散华剑舞修行"
+                        },
+                        new
+                        {
+                            CourseId = 3,
+                            DepartmentId = 2,
+                            Title = "深渊区域探索委托"
+                        },
+                        new
+                        {
+                            CourseId = 4,
+                            DepartmentId = 2,
+                            Title = "执法实务训练"
+                        });
                 });
 
             modelBuilder.Entity("ConstrainAndRelation.Models.Department", b =>
@@ -76,6 +105,24 @@ namespace ConstrainAndRelation.Migrations
                         .IsUnique();
 
                     b.ToTable("Departments");
+
+                    b.HasData(
+                        new
+                        {
+                            DepartmentId = 1,
+                            Budget = 500000m,
+                            InstructorId = 1,
+                            Name = "月影谷",
+                            StartDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            DepartmentId = 2,
+                            Budget = 300000m,
+                            InstructorId = 2,
+                            Name = "白缇教",
+                            StartDate = new DateTime(2018, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("ConstrainAndRelation.Models.Enrollment", b =>
@@ -102,6 +149,56 @@ namespace ConstrainAndRelation.Migrations
                     b.HasIndex("ResonatorId");
 
                     b.ToTable("Enrollments");
+
+                    b.HasData(
+                        new
+                        {
+                            EnrollmentId = 1,
+                            CourseId = 1,
+                            Grade = 0,
+                            ResonatorId = 1
+                        },
+                        new
+                        {
+                            EnrollmentId = 2,
+                            CourseId = 2,
+                            Grade = 0,
+                            ResonatorId = 1
+                        },
+                        new
+                        {
+                            EnrollmentId = 3,
+                            CourseId = 1,
+                            Grade = 1,
+                            ResonatorId = 2
+                        },
+                        new
+                        {
+                            EnrollmentId = 4,
+                            CourseId = 2,
+                            Grade = 0,
+                            ResonatorId = 3
+                        },
+                        new
+                        {
+                            EnrollmentId = 5,
+                            CourseId = 3,
+                            Grade = 2,
+                            ResonatorId = 4
+                        },
+                        new
+                        {
+                            EnrollmentId = 6,
+                            CourseId = 4,
+                            Grade = 1,
+                            ResonatorId = 5
+                        },
+                        new
+                        {
+                            EnrollmentId = 7,
+                            CourseId = 1,
+                            ResonatorId = 6
+                        });
                 });
 
             modelBuilder.Entity("ConstrainAndRelation.Models.Instructor", b =>
@@ -123,6 +220,26 @@ namespace ConstrainAndRelation.Migrations
                     b.HasKey("InstructorId");
 
                     b.ToTable("Instructors");
+
+                    b.HasData(
+                        new
+                        {
+                            InstructorId = 1,
+                            HireDate = new DateTime(2023, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "散华"
+                        },
+                        new
+                        {
+                            InstructorId = 2,
+                            HireDate = new DateTime(2023, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "今汐"
+                        },
+                        new
+                        {
+                            InstructorId = 3,
+                            HireDate = new DateTime(2024, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "吟霖"
+                        });
                 });
 
             modelBuilder.Entity("ConstrainAndRelation.Models.OfficeAssignment", b =>
@@ -138,6 +255,18 @@ namespace ConstrainAndRelation.Migrations
                     b.HasKey("InstructorId");
 
                     b.ToTable("OfficeAssignments");
+
+                    b.HasData(
+                        new
+                        {
+                            InstructorId = 1,
+                            OfficeLocation = "今州"
+                        },
+                        new
+                        {
+                            InstructorId = 2,
+                            OfficeLocation = "今州"
+                        });
                 });
 
             modelBuilder.Entity("ConstrainAndRelation.Resonator", b =>
@@ -165,6 +294,9 @@ namespace ConstrainAndRelation.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("ResonatorName");
 
+                    b.Property<bool>("SoftDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -173,6 +305,68 @@ namespace ConstrainAndRelation.Migrations
                     b.HasKey("ResonatorId");
 
                     b.ToTable("Resonators");
+
+                    b.HasData(
+                        new
+                        {
+                            ResonatorId = 1,
+                            Efficiency = 95,
+                            EnrollmentDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Frequency = 100,
+                            Name = "椿",
+                            SoftDeleted = false,
+                            Type = "堙灭"
+                        },
+                        new
+                        {
+                            ResonatorId = 2,
+                            Efficiency = 88,
+                            EnrollmentDate = new DateTime(2025, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Frequency = 50,
+                            Name = "守岸人",
+                            SoftDeleted = false,
+                            Type = "衍射"
+                        },
+                        new
+                        {
+                            ResonatorId = 3,
+                            Efficiency = 92,
+                            EnrollmentDate = new DateTime(2025, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Frequency = 75,
+                            Name = "秧秧",
+                            SoftDeleted = false,
+                            Type = "气动"
+                        },
+                        new
+                        {
+                            ResonatorId = 4,
+                            Efficiency = 90,
+                            EnrollmentDate = new DateTime(2025, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Frequency = 200,
+                            Name = "炽霞",
+                            SoftDeleted = false,
+                            Type = "热熔"
+                        },
+                        new
+                        {
+                            ResonatorId = 5,
+                            Efficiency = 87,
+                            EnrollmentDate = new DateTime(2025, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Frequency = 150,
+                            Name = "渊武",
+                            SoftDeleted = false,
+                            Type = "导电"
+                        },
+                        new
+                        {
+                            ResonatorId = 6,
+                            Efficiency = 93,
+                            EnrollmentDate = new DateTime(2026, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Frequency = 80,
+                            Name = "莉莉",
+                            SoftDeleted = false,
+                            Type = "衍射"
+                        });
                 });
 
             modelBuilder.Entity("CourseInstructor", b =>
@@ -188,6 +382,33 @@ namespace ConstrainAndRelation.Migrations
                     b.HasIndex("InstructorsInstructorId");
 
                     b.ToTable("CourseInstructor");
+
+                    b.HasData(
+                        new
+                        {
+                            CoursesCourseId = 1,
+                            InstructorsInstructorId = 1
+                        },
+                        new
+                        {
+                            CoursesCourseId = 1,
+                            InstructorsInstructorId = 2
+                        },
+                        new
+                        {
+                            CoursesCourseId = 2,
+                            InstructorsInstructorId = 1
+                        },
+                        new
+                        {
+                            CoursesCourseId = 3,
+                            InstructorsInstructorId = 2
+                        },
+                        new
+                        {
+                            CoursesCourseId = 4,
+                            InstructorsInstructorId = 3
+                        });
                 });
 
             modelBuilder.Entity("ConstrainAndRelation.Models.Course", b =>

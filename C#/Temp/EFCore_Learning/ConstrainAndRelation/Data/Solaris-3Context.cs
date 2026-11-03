@@ -1,6 +1,6 @@
-﻿﻿﻿﻿﻿﻿﻿﻿// ============================================================
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿// ============================================================
 // EF Core 迁移命令参考（CLI vs PM）
-// -----------------------------------------------------------  -
+// -------------------------------------------------------------
 // 生成迁移：
 //   CLI: dotnet ef migrations add <迁移名称>
 //   PM : Add-Migration <迁移名称>
@@ -9,17 +9,29 @@
 //   CLI: dotnet ef database update
 //   PM : Update-Database
 //
-// 列出迁移：
+// 列出所有迁移：
 //   CLI: dotnet ef migrations list
 //   PM : Get-Migration
 //
-// 删除最新迁移：
+// 删除最新迁移（仅删除未应用的）：
 //   CLI: dotnet ef migrations remove
 //   PM : Remove-Migration
 //
 // 回滚到指定迁移：
 //   CLI: dotnet ef database update <迁移名称>
 //   PM : Update-Database <迁移名称>
+//
+// 删库（删除所有表和数据）：
+//   CLI: dotnet ef database drop -f
+//   PM : Drop-Database -Confirm:$false
+//
+// 生成 SQL 脚本（用于生产环境发布）：
+//   CLI: dotnet ef migrations script
+//   PM : Script-Migration
+//
+// 恢复种子数据（开发阶段推荐）：
+//   CLI: dotnet ef database drop -f && dotnet ef database update
+//   PM : Drop-Database -Force; Update-Database
 //
 // 注意：本项目使用 EF Core 10，PM 命令可能报
 //       "不支持所指定的方法"，请优先使用 CLI 命令。
@@ -68,6 +80,8 @@ namespace ConstrainAndRelation
         /// </summary>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+
             // ============================================
             // 数据播种（严格按依赖顺序！）
             // ============================================
@@ -81,8 +95,8 @@ namespace ConstrainAndRelation
 
             // ② OfficeAssignment —— 驻点/据点（1对1，主键=外键）
             modelBuilder.Entity<OfficeAssignment>().HasData(
-                new { InstructorId = 1, OfficeLocation = "月影谷据点" },
-                new { InstructorId = 2, OfficeLocation = "白缇教总部" }
+                new { InstructorId = 1, OfficeLocation = "今州" },
+                new { InstructorId = 2, OfficeLocation = "今州" }
             );
 
             // ③ Department —— 势力/组织（系主任=该势力的资深共鸣者）
@@ -94,12 +108,12 @@ namespace ConstrainAndRelation
             // ④ Resonator —— 共鸣者（另一个根节点）
             // Type = 共鸣属性，Frequency = 共鸣频率(MHz)，Efficiency = 共鸣效率(%)
             modelBuilder.Entity<Resonator>().HasData(
-                new { ResonatorId = 1, Name = "椿", Type = "堙灭", Frequency = 100, Efficiency = 95, EnrollmentDate = new DateTime(2025, 1, 1) },
-                new { ResonatorId = 2, Name = "守岸人", Type = "衍射", Frequency = 50, Efficiency = 88, EnrollmentDate = new DateTime(2025, 3, 15) },
-                new { ResonatorId = 3, Name = "秧秧", Type = "气动", Frequency = 75, Efficiency = 92, EnrollmentDate = new DateTime(2025, 6, 1) },
-                new { ResonatorId = 4, Name = "炽霞", Type = "热熔", Frequency = 200, Efficiency = 90, EnrollmentDate = new DateTime(2025, 9, 10) },
-                new { ResonatorId = 5, Name = "渊武", Type = "导电", Frequency = 150, Efficiency = 87, EnrollmentDate = new DateTime(2025, 11, 5) },
-                new { ResonatorId = 6, Name = "茉莉", Type = "冷凝", Frequency = 80, Efficiency = 93, EnrollmentDate = new DateTime(2026, 1, 20) }
+                new { ResonatorId = 1, Name = "椿", Type = "堙灭", Frequency = 100, Efficiency = 95, EnrollmentDate = new DateTime(2025, 1, 1), SoftDeleted = false },
+                new { ResonatorId = 2, Name = "守岸人", Type = "衍射", Frequency = 50, Efficiency = 88, EnrollmentDate = new DateTime(2025, 3, 15), SoftDeleted = false },
+                new { ResonatorId = 3, Name = "秧秧", Type = "气动", Frequency = 75, Efficiency = 92, EnrollmentDate = new DateTime(2025, 6, 1), SoftDeleted = false },
+                new { ResonatorId = 4, Name = "炽霞", Type = "热熔", Frequency = 200, Efficiency = 90, EnrollmentDate = new DateTime(2025, 9, 10), SoftDeleted = false },
+                new { ResonatorId = 5, Name = "渊武", Type = "导电", Frequency = 150, Efficiency = 87, EnrollmentDate = new DateTime(2025, 11, 5), SoftDeleted = false },
+                new { ResonatorId = 6, Name = "莉莉", Type = "衍射", Frequency = 80, Efficiency = 93, EnrollmentDate = new DateTime(2026, 1, 20), SoftDeleted = false }
             );
 
             // ⑤ Course —— 共鸣修行/委托任务（多对一，属于某个势力发布）
@@ -147,11 +161,27 @@ namespace ConstrainAndRelation
                 .WithOne(i => i.Department)
                 .HasForeignKey<Department>(d => d.InstructorId);
 
-            // ---------- 3. Resonator.EnrollmentDate 默认值 ----------
-            // 给谐振器/学生的登记日期默认设为今天
+            // ---------- 4. Resonator 软删除 ----------
+            // 全局查询过滤：自动排除 SoftDeleted = true 的记录
             modelBuilder.Entity<Resonator>()
-                .Property(r => r.EnrollmentDate)
-                .HasDefaultValueSql("GETDATE()");
+                .HasQueryFilter(r => !r.SoftDeleted);
+        }
+
+
+        // ============================================
+        // 软删除拦截：把 Remove 自动转成 UPDATE SoftDeleted = true
+        // ============================================
+        public override int SaveChanges()
+        {
+            foreach (var entry in ChangeTracker.Entries())
+            {
+                if (entry.State == EntityState.Deleted && entry.Entity is Resonator r)
+                {
+                    entry.State = EntityState.Modified;
+                    r.SoftDeleted = true;
+                }
+            }
+            return base.SaveChanges();
         }
 
 
@@ -160,6 +190,9 @@ namespace ConstrainAndRelation
         // ============================================
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            // 启用延迟加载
+            optionsBuilder.UseLazyLoadingProxies();
+
             optionsBuilder.UseSqlServer(
                 "Server=(localdb)\\MSSQLLocalDB;Initial Catalog=Solaris_3Db;Trusted_Connection=True;"
             );

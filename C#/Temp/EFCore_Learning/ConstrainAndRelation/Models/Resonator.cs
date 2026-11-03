@@ -16,6 +16,8 @@ namespace ConstrainAndRelation
     /// </summary>
     public class Resonator
     {
+        //软删除
+        public bool SoftDeleted { get; set; } = false;
         // ============================================
         // 主键
         // ============================================

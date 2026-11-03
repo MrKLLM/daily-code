@@ -17,7 +17,10 @@ namespace ConstrainAndRelation.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.13")
+                .HasAnnotation("ProductVersion", "10.0.14")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -254,12 +257,12 @@ namespace ConstrainAndRelation.Migrations
                         new
                         {
                             InstructorId = 1,
-                            OfficeLocation = "月影谷据点"
+                            OfficeLocation = "今州"
                         },
                         new
                         {
                             InstructorId = 2,
-                            OfficeLocation = "白缇教总部"
+                            OfficeLocation = "今州"
                         });
                 });
 
@@ -288,6 +291,9 @@ namespace ConstrainAndRelation.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("ResonatorName");
 
+                    b.Property<bool>("SoftDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -305,6 +311,7 @@ namespace ConstrainAndRelation.Migrations
                             EnrollmentDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Frequency = 100,
                             Name = "椿",
+                            SoftDeleted = false,
                             Type = "堙灭"
                         },
                         new
@@ -314,6 +321,7 @@ namespace ConstrainAndRelation.Migrations
                             EnrollmentDate = new DateTime(2025, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Frequency = 50,
                             Name = "守岸人",
+                            SoftDeleted = false,
                             Type = "衍射"
                         },
                         new
@@ -323,6 +331,7 @@ namespace ConstrainAndRelation.Migrations
                             EnrollmentDate = new DateTime(2025, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Frequency = 75,
                             Name = "秧秧",
+                            SoftDeleted = false,
                             Type = "气动"
                         },
                         new
@@ -332,6 +341,7 @@ namespace ConstrainAndRelation.Migrations
                             EnrollmentDate = new DateTime(2025, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Frequency = 200,
                             Name = "炽霞",
+                            SoftDeleted = false,
                             Type = "热熔"
                         },
                         new
@@ -341,6 +351,7 @@ namespace ConstrainAndRelation.Migrations
                             EnrollmentDate = new DateTime(2025, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Frequency = 150,
                             Name = "渊武",
+                            SoftDeleted = false,
                             Type = "导电"
                         },
                         new
@@ -349,8 +360,9 @@ namespace ConstrainAndRelation.Migrations
                             Efficiency = 93,
                             EnrollmentDate = new DateTime(2026, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Frequency = 80,
-                            Name = "茉莉",
-                            Type = "冷凝"
+                            Name = "莉莉",
+                            SoftDeleted = false,
+                            Type = "衍射"
                         });
                 });
 
