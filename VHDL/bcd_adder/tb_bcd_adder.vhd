@@ -45,13 +45,21 @@ begin
         -- 然后再看下一组
 
         A <= "0000"; B <= "0000"; wait for 100 ns;   -- 0 + 0 = 0
+        -- report "A=0000 B=0000 | Dout=" & std_logic'image(Dout) & " Sum=" & to_string(Sum) & " | expected: Dout=0 Sum=0000";
         A <= "0011"; B <= "0100"; wait for 100 ns;   -- 3 + 4 = 7
+        -- report "A=0011 B=0100 | Dout=" & std_logic'image(Dout) & " Sum=" & to_string(Sum) & " | expected: Dout=0 Sum=0111";
         A <= "0101"; B <= "0011"; wait for 100 ns;   -- 5 + 3 = 8
+        -- report "A=0101 B=0011 | Dout=" & std_logic'image(Dout) & " Sum=" & to_string(Sum) & " | expected: Dout=0 Sum=1000";
         A <= "0111"; B <= "0010"; wait for 100 ns;   -- 7 + 2 = 9  (不进位, 无需修正)
+        -- report "A=0111 B=0010 | Dout=" & std_logic'image(Dout) & " Sum=" & to_string(Sum) & " | expected: Dout=0 Sum=1001";
         A <= "1000"; B <= "0011"; wait for 100 ns;   -- 8 + 3 = 11 (应得到 Sum=1, Dout=1, 即十进制 11)
+        -- report "A=1000 B=0011 | Dout=" & std_logic'image(Dout) & " Sum=" & to_string(Sum) & " | expected: Dout=1 Sum=0001";
         A <= "0110"; B <= "0101"; wait for 100 ns;   -- 6 + 5 = 11 (同上)
+        -- report "A=0110 B=0101 | Dout=" & std_logic'image(Dout) & " Sum=" & to_string(Sum) & " | expected: Dout=1 Sum=0001";
         A <= "1001"; B <= "1001"; wait for 100 ns;   -- 9 + 9 = 18 (应得到 Sum=8, Dout=1)
+        -- report "A=1001 B=1001 | Dout=" & std_logic'image(Dout) & " Sum=" & to_string(Sum) & " | expected: Dout=1 Sum=1000";
         A <= "1001"; B <= "0001"; wait for 100 ns;   -- 9 + 1 = 10 (应得到 Sum=0, Dout=1)
+        -- report "A=1001 B=0001 | Dout=" & std_logic'image(Dout) & " Sum=" & to_string(Sum) & " | expected: Dout=1 Sum=0000";
 
         wait;   -- 永远等待, 让仿真停在这里 (进程结束)
     end process;

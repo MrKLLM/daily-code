@@ -104,10 +104,15 @@ static void PrintCourses(List<CourseViewModel> courses)
         System.Console.WriteLine($"课程: {c.Title}, 院系: {c.DepartmentName}");
     }
 }
-
+#endregion
+//1.安装Microsoft.EntityFrameworkCore.Proxies
+//2.配置数据库上下文
+//3.导航属性必须是虚属性
+#region 延迟加载
+//配置方式
+#endregion
 class CourseViewModel
 {
     public string Title { get; set; }
     public string DepartmentName { get; set; }
 }
-#endregion
